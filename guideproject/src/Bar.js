@@ -2,7 +2,6 @@ import React from 'react';
 import TouristPoint from './TouristPoint';
 import Fave from './Fave';
 import Home from './Home';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 export default class Bar extends React.Component {
     constructor(props) {
@@ -19,7 +18,7 @@ render() {
   <Link to="/Fave">Fave</Link>
 </nav>
 <div>
-  <Route exact path="/" component={Home} />
+  <Route  path="/Home" component={Home} />
   <Route path="/TouristPoint" component={TouristPoint} />
   <Route path="/Fave" component={Fave} />
 </div>

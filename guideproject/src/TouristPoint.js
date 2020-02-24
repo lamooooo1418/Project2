@@ -4,6 +4,8 @@ export default class TouristPoint extends React.Component {
 constructor(props) {
 super(props)
 
+
+
 }
 /*
 this.state = {
@@ -17,6 +19,6 @@ CountryToDisplay = this.props.results.name,};}
 
             ) }*/
             render() {
-                return (<div>nmm</div>
+                return (<div></div>
                 )}
         }

@@ -1,5 +1,5 @@
-const results = {
-    "results": [{
+const DB = {
+    results: [{
             "id": "MM__14f8b5ca-2046-11e7-9cc9-06a7e332783f",
             "name": "Volendam, Marken and windmills tour from Amsterdam",
             "score": 8.94932749452612,
@@ -662,3 +662,5 @@ const results = {
         }
     ]
 };
+
+export default DB;

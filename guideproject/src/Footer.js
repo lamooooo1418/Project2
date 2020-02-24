@@ -9,8 +9,7 @@ super(props)
 
         }
         render() {
-
-            return ( <div className="Footer "> Footer </div>);
+ return ( <div className="Footer "> Contact US:  </div>);
 
 
             }
