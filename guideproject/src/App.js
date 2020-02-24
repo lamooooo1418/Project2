@@ -88,9 +88,8 @@ return <h1>{oneCountry.name}</h1>
 <img src={require('./London.jpg')} alt ="" />
  <div >Welcome to Visit London, your official city guide to London, England. Find things to do in London, days out in London, London attractions and sightseeing, what's on, London events, theatre, tours, restaurants and hotels in London. Plan your trip to London with useful traveller information.</div>                            
 </div>
-
-      <div className='City2 ' >City 2
-        <div></div>
+ <div className='City2 ' >City 2
+  <div></div>
         <nav>< Footer/> <div>
 
 
