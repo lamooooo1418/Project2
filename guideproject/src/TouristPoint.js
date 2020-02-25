@@ -1,13 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export default class TouristPoint extends React.Component {
-constructor(props) {
-super(props)
-
-
-
-}
-/*
+  constructor(props) {
+    super(props);
+  }
+  /*
 this.state = {
 searchValue: "",
 CountryToDisplay = this.props.results.name,};}
@@ -18,7 +15,7 @@ CountryToDisplay = this.props.results.name,};}
         
 
             ) }*/
-            render() {
-                return (<div></div>
-                )}
-        }
+  render() {
+    return <div></div>;
+  }
+}

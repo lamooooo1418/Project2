@@ -1,40 +1,43 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .logo {
-    width: 100px;
-    length: 25px
+  width: 100px;
+  height: 25px;
 }
 
 .WHo {
-    text-align: center;
-    justify-content: end;
+  text-align: center;
+  justify-content: end;
 }
 
 .Nav {
-    background-color: orange;
+  background-color: orange;
 }
 
 .City1 {
-    margin: auto;
-    color: brown;
-    justify-content: end;
-    flex-direction: column;
+  margin: auto;
+  color: brown;
+  justify-content: end;
+  flex-direction: column;
 }
 
 .Footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: grey;
-    color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: grey;
+  color: white;
 }
