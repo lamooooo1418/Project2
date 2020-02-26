@@ -4,7 +4,7 @@ import "./App.css";
 import Bar from "./Bar.js";
 import Home from "./Home";
 import Fave from "./Fave";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import DB from "./DB";
 
 import ReactDOM from "react-dom";
@@ -21,16 +21,26 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       city: [],
-      obj={['']},
+      obj: [{}],
       trips: DB.results,
       searchValue: "",
       Counryinput: "",
       Price: [],
       country: [],
       Faves: [],
-      inputtext: ""
+      inputtext: "",
+      inputtext2: "",
+      inputtext3: "",
+      inputtext4: ""
     };
   }
+
+  addToFav = city => {
+    city.preventDefault();
+    this.setState({
+      Faves: [...this.state.Faves, city]
+    });
+  };
 
   componentDidMount() {
     // read about this inside axios
@@ -66,7 +76,7 @@ export default class App extends React.Component {
     console.log(textValue);
 
     console.log("DB :", DB.results);
-    console.log("DB :", DB.results.name);
+    // console.log("DB :", DB.results.name);
     const filteredCountry = DB.results.filter(elem => {
       return elem.name.includes(textValue);
     });
@@ -84,9 +94,10 @@ export default class App extends React.Component {
       url: apiURL
     })
       .then(response => {
-        console.log(response);
+        console.log("API data", response.data);
         //  const Country11 = DB.results.map(
         // (elem,index)=>{const City={name:response.data.results}})
+
         const cityofOb = {
           name: response.data.name,
           id: response.data.id,
@@ -97,6 +108,7 @@ export default class App extends React.Component {
 
         this.setState({
           city: [cityofOb]
+          // city: response.data
         });
         console.log(this.state.city);
       })
@@ -104,14 +116,23 @@ export default class App extends React.Component {
         console.log("ERROR: ", err);
       });
   };
-
-  add = () => {
+  additem = e => {};
+  add = e => {
+    e.preventDefault();
     // inputtext:e.target.value})
     console.log(this.state.country, " country state");
     console.log(this.state.inputtext, " input text");
     this.setState({
-      country: [...this.state.country, this.state.inputtext]
+      country: [
+        ...this.state.country,
+        this.state.inputtext,
+        this.state.inputtext2,
+        this.state.inputtext3,
+        this.state.inputtext4
+      ]
+      // inputtext: e.target.value
     });
+    this.componentDidMount(e.target.value);
     // console.log(this.state.country[0]);
     console.log(this.state.country, " country state");
   };
@@ -119,6 +140,19 @@ export default class App extends React.Component {
   typingAdd = e => {
     this.setState({ inputtext: e.target.value });
   };
+
+  typingAdd2 = e => {
+    this.setState({ inputtext2: e.target.value });
+  };
+
+  typingAdd3 = e => {
+    this.setState({ inputtext3: e.target.value });
+  };
+
+  typingAdd4 = e => {
+    this.setState({ inputtext4: e.target.value });
+  };
+
   clearList = () => {
     this.setState({
       country: []
@@ -144,59 +178,62 @@ export default class App extends React.Component {
         {/* <City onChange={this.handleSearchChange}    /> */}
         <div className="City1 ">
           {/*<img src={require('./London.jpg')} alt ="" />*/}
-          <div>
-            Welcome to Visit London, your official city guide to London,
-            England. Find things to do in London, days out in London, London
-            attractions and sightseeing, what's on, London events, theatre,
-            tours, restaurants and hotels in London. Plan your trip to London
-            with useful traveller information.
-          </div>
+          <div></div>
         </div>
         <div className="City2 ">
-          City 2<div></div>
+          <div></div>
         </div>
 
-        <ListContianer trips={this.state.trips}>List</ListContianer>
-        <input
-          type="text"
-          value={this.state.inputtext}
-          onChange={this.typingAdd}/>
+        <ListContianer trips={this.state.trips} input={this.state.country}>
+          List
+        </ListContianer>
+        <div>
+          <form>
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={this.state.inputtext}
+              onChange={this.typingAdd}
+            ></input>
+            <br />
+            <label>ID</label>
+            <input
+              type="text"
+              name="ID"
+              value={this.state.inputtext2}
+              onChange={this.typingAdd2}
+            ></input>
+            <br />
+            <label>Score</label>
+            <input
+              type="text"
+              name="score"
+              value={this.state.inputtext3}
+              onChange={this.typingAdd3}
+            ></input>
+            <br />
+            <label>Currency</label>
+            <input
+              type="text"
+              name="nCurrency"
+              value={this.state.inputtext4}
+              onChange={this.typingAdd4}
+            ></input>
+            <button onClick={this.clearList}>ClearList</button>
+            <button onClick={this.add}>Add</button>
+            <button addToFav={this.addToFav}>fav</button>
+          </form>
+        </div>
 
-        <button onClick={this.add}>Add</button>
-        <Listitem country={this.state.obj} />
-        <button onClick={this.clearList}>ClearList</button>
-        <nav>
+        <Listitem country={this.state.country} />
+
+        {/* <nav>
           <Footer /> <div></div>
-        </nav>
+        </nav> */}
 
         {/* <Bar /> */}
       </div>
     );
   }
 }
-
-/*
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-
-
-}*/
-/*
- */

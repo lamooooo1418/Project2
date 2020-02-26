@@ -7,11 +7,24 @@ export default class listitem extends React.Component {
   render() {
     return (
       <div>
-        <li>
-          Name:{this.props.country.name} ID:{this.props.country.id}
-          Currency :{this.props.country.currency} Score:
-          {this.props.country.score}
-        </li>
+        <table border="1">
+          <tr>
+            <td> Name: </td>
+            <td>{this.props.country.name}</td>
+          </tr>
+          <tr>
+            <td>ID </td>
+            <td>{this.props.country.id}</td>
+          </tr>
+          <tr>
+            <td>Score </td>
+            <td> {this.props.country.score} </td>
+          </tr>{" "}
+          <tr>
+            <td>Currency</td>
+            <td> {this.props.country.currency} </td>
+          </tr>
+        </table>
       </div>
     );
   }
