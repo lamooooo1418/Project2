@@ -168,17 +168,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="Div1">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
-                  Favourits <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
+     
           </div>
-        </nav>
+      
         <div className="Title"> Tourist Guide List </div>
         <img className="logo" src={require("./logo.png")} alt="" />
         <Fave />
