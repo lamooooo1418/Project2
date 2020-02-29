@@ -1,21 +1,15 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Bar from "./Bar.js";
-import Home from "./Home";
 import Fave from "./Fave";
 // import Footer from "./Footer";
 import DB from "./DB";
-
-import ReactDOM from "react-dom";
 import Search from "./Search";
-import TouristPoint from "./TouristPoint";
 import axios from "axios";
-import Delete from "./Delete";
 import Listitem from "./listitem";
 import ListContianer from "./ListContainer";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +21,9 @@ export default class App extends React.Component {
       Counryinput: "",
       Price: [],
       country: [],
+      score: [],
+      currency: [],
+      id: [],
       Faves: [],
       inputtext: "",
       inputtext2: "",
@@ -34,7 +31,15 @@ export default class App extends React.Component {
       inputtext4: ""
     };
   }
+  DeleteOneitem = () => {
+    this.setState({
+      country: [...this.state.country, this.state.country],
+      score: [...this.state.score, this.state.score],
 
+      currency: [this.state.currency, this.state.currency],
+      id: [...this.state.id, this.state.id]
+    });
+  }; //Proccessing
   addToFav = city => {
     city.preventDefault();
     this.setState({
@@ -63,7 +68,7 @@ export default class App extends React.Component {
         };
 
         this.setState({
-          city: [cityofOb]
+          city: []
         });
         console.log(this.state.city);
       })
@@ -116,20 +121,18 @@ export default class App extends React.Component {
         console.log("ERROR: ", err);
       });
   };
-  additem = e => {};
+
   add = e => {
     e.preventDefault();
     // inputtext:e.target.value})
     console.log(this.state.country, " country state");
     console.log(this.state.inputtext, " input text");
     this.setState({
-      country: [
-        ...this.state.country,
-        this.state.inputtext,
-        this.state.inputtext2,
-        this.state.inputtext3,
-        this.state.inputtext4
-      ]
+      country: [...this.state.country, this.state.inputtext2],
+      id: [...this.state.id, this.state.inputtext],
+      score: [...this.state.score, this.state.inputtext4],
+      currency: [...this.state.currency, this.state.inputtext3]
+
       // inputtext: e.target.value
     });
     this.componentDidMount(e.target.value);
@@ -155,84 +158,127 @@ export default class App extends React.Component {
 
   clearList = () => {
     this.setState({
-      country: []
+      country: [],
+      id: [],
+      currency: [],
+      score: []
     });
+  };
+  Edit = index => {
+    EditOne = prompt("Edit:", this.state.country[index]);
+    if (EditOne != null) {
+      this.state.country[index] = EditOne;
+    }
+
+    deleteItem = id => {
+      const delet = this.state.trips.filter(trips => trips != id);
+    };
+    this.setState({ trips: "deletd" });
   };
 
   render() {
     return (
-      <div>
-        <div>Tourist Guide List </div>
+      <div className="Div1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                  Favourits <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div className="Title"> Tourist Guide List </div>
         <img className="logo" src={require("./logo.png")} alt="" />
-        <div></div>
-        {this.state.country.map(oneCountry => {
+        <Fave />
+
+        <div>
+          <Search
+            value={this.state.searchValue}
+            onChange={this.handleSearchChange}
+          />
+          <p> </p> <p> </p> <p> </p>
+          <p> </p>
+        </div>
+        {this.state.trips.map(oneCountry => {
           console.log(oneCountry.name);
-          return <h1>{oneCountry.name}</h1>;
+          return (
+            <div>
+              <table border="3" className="Table">
+                <td> ID:</td>
+                <td>{oneCountry.id}</td>
+
+                <tr>
+                  <td>Name: </td>
+                  <td>{oneCountry.name}</td>
+                </tr>
+                <tr>
+                  <td>Currency: </td>
+                  <td> {oneCountry.price.currency}</td>
+                </tr>
+
+                <tr>
+                  <td>Score:</td>
+                  <td> {oneCountry.score}</td>
+                </tr>
+              </table>
+              <p> </p>
+              <p> </p>
+            </div>
+          );
         })}
 
-        <Search
-          value={this.state.searchValue}
-          onChange={this.handleSearchChange}
-        />
-
-        {/* <City onChange={this.handleSearchChange}    /> */}
         <div className="City1 ">
-          {/*<img src={require('./London.jpg')} alt ="" />*/}
           <div></div>
         </div>
         <div className="City2 ">
           <div></div>
         </div>
 
-        <ListContianer trips={this.state.trips} input={this.state.country}>
-          List
-        </ListContianer>
         <div>
           <form>
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.inputtext}
-              onChange={this.typingAdd}
-            ></input>
+            <label>Name:-</label>
+            <input type="text" name="name" onChange={this.typingAdd}></input>
             <br />
-            <label>ID</label>
-            <input
-              type="text"
-              name="ID"
-              value={this.state.inputtext2}
-              onChange={this.typingAdd2}
-            ></input>
+            <label>ID:-</label>
+            <input type="text" name="ID" onChange={this.typingAdd2}></input>
             <br />
-            <label>Score</label>
-            <input
-              type="text"
-              name="score"
-              value={this.state.inputtext3}
-              onChange={this.typingAdd3}
-            ></input>
+            <label>Score:-</label>
+            <input type="text" name="score" onChange={this.typingAdd3}></input>
             <br />
-            <label>Currency</label>
+            <label>Currency:- </label>
             <input
               type="text"
-              name="nCurrency"
-              value={this.state.inputtext4}
+              name="Currency"
               onChange={this.typingAdd4}
             ></input>
-            <button onClick={this.clearList}>ClearList</button>
-            <button onClick={this.add}>Add</button>
-            <button addToFav={this.addToFav}>fav</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onClick={this.clearList}
+            >
+              ClearList
+            </button>
+            <button type="button" class="btn btn-primary" onClick={this.add}>
+              Add
+            </button>
           </form>
         </div>
-
-        <Listitem country={this.state.country} />
-
-        {/* <nav>
-          <Footer /> <div></div>
-        </nav> */}
-
-        {/* <Bar /> */}
+        <Listitem
+          country={this.state.country}
+          ID={this.state.id}
+          SCORE={this.state.score}
+          Currency={this.state.currency}
+        />
+        <button
+          onClick={this.Edit}
+          type="button"
+          class="btn btn-default btn-sm"
+        >
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        </button>
       </div>
     );
   }

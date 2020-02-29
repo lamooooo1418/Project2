@@ -1,32 +1,58 @@
 .App {
   text-align: center;
-  background-color: bisque;
+  background-color: lightblue;
+}
 
+.Div1 {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 400px;
+  height: 400px;
+}
+
+.Title {
+  color: #61dafb;
+  font-size: xx-large;
 }
 
 table,
-td,
-th {
+th,
+td {
+  border-radius: inherit;
+  visibility: display;
+  margin: auto;
+  font-size: initial;
   border: 1px solid #ddd;
   text-align: left;
+  border-spacing: 7;
+  color: #282c34;
 }
 
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  border-color: darkgoldenrod;
+  margin: auto;
+  white-space: normal;
 }
 
-th,
 td {
+  background-color: burlywood;
+  border-color: darkgoldenrod;
+
+  align-items: center;
   padding: 15px;
+  lighting-color: cyan;
+  margin: auto;
+  list-style-position: inside;
+  height: 50px;
 }
-
-
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-
 }
 
 @media (prefers-reduced-motion: no-preference) {

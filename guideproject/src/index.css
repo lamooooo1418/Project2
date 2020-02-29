@@ -5,13 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-justify: distribute-all-lines;
+  background-color: bisque;
 }
 
 table {
   height: 150px;
   width: 100px;
   padding: 60;
-
+  border-width: initial;
+  size: inherit;
 }
 
 code {
@@ -31,13 +34,6 @@ code {
 
 .Nav {
   background-color: orange;
-}
-
-.City1 {
-  margin: auto;
-  color: brown;
-  justify-content: end;
-  flex-direction: column;
 }
 
 .Footer {

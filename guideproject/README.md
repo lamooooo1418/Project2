@@ -1,7 +1,7 @@
 ### Descriprtion :
 
 <p> 
-Building React Project From scartch.
+Building React Project From step one by selecting API and Start WireFrame then cooding .
 
 ### User Stories :
 
@@ -10,6 +10,7 @@ Building React Project From scartch.
 - The User can delete to the list of Country Item .
 - The User can delete one item from list of Country Item
 - The User can Add to the Favourite .
+- the User can Search on specific Country .
 
 #### wireframe of the main page:
 
@@ -20,7 +21,12 @@ Building React Project From scartch.
 1-javascripts .
 2-React.
 3-CSS .
-4-Decided to Use Router concept with bootsrap .
+4-bootsrap .
+
+### UnderProccess Function :
+
+- Delete Selected item
+- Favourite Function
 
 ### Issues :
 

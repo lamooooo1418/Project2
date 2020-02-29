@@ -10,13 +10,15 @@ export default class Fave extends React.Component {
     return (
       <div>
         <label>
-          {" "}
-          Favourite country
-          <input type="text" onChange={this.handleChange} />
+          {""}
+          Favourite country :
+          <input type="text" onChange={this.props.handleChange} />
+          <button type="button" class="btn btn-warning" onClick={this.addToFav}>
+            AddToFavourite
+          </button>
         </label>
-        <button type="submit" onClick={this.handleSubmit}>
-          Add{" "}
-        </button>
+
+        <h1>{this.props.Fave}</h1>
       </div>
     );
   }
