@@ -168,9 +168,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="Div1">
-     
-          </div>
-      
         <div className="Title"> Tourist Guide List </div>
         <img className="logo" src={require("./logo.png")} alt="" />
         <Fave />
