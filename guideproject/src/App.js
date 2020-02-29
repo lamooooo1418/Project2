@@ -164,17 +164,6 @@ export default class App extends React.Component {
       score: []
     });
   };
-  Edit = index => {
-    EditOne = prompt("Edit:", this.state.country[index]);
-    if (EditOne != null) {
-      this.state.country[index] = EditOne;
-    }
-
-    deleteItem = id => {
-      const delet = this.state.trips.filter(trips => trips != id);
-    };
-    this.setState({ trips: "deletd" });
-  };
 
   render() {
     return (
@@ -272,13 +261,6 @@ export default class App extends React.Component {
           SCORE={this.state.score}
           Currency={this.state.currency}
         />
-        <button
-          onClick={this.Edit}
-          type="button"
-          class="btn btn-default btn-sm"
-        >
-          <span class="glyphicon glyphicon-pencil"></span> Edit
-        </button>
       </div>
     );
   }

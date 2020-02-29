@@ -25,6 +25,13 @@ export default class Bar extends React.Component {
     );
 
     /*const AllCountry = this.props.name.map(function(country, index) {
+
+
+      Edit = index => {
+    EditOne = prompt("Edit:", this.state.country[index]);
+    if (EditOne != null) {
+      this.state.country[index] = EditOne;
+    }
         return <TouristPoint name = { country }
         key = { index } />;})
         const Fave = this.props.name.map(function(fave, index) {

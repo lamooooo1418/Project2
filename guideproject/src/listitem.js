@@ -10,21 +10,21 @@ export default class listitem extends React.Component {
         <table border="3">
           <tr>
             <td className="listtd"> ID: </td>
-            <td>{this.props.country}</td>
+            <td>{this.props.country.join("/")}</td>
           </tr>
 
           <tr>
             <td>Name: </td>
-            <td>{this.props.ID}</td>
+            <td>{this.props.ID.join("/")}</td>
           </tr>
           <tr>
             <td>Currency:</td>
-            <td> {this.props.SCORE}</td>
+            <td> {this.props.SCORE.join("/")}</td>
           </tr>
           {}
           <tr>
             <td>Score:</td>
-            <td> {this.props.Currency}</td>
+            <td> {this.props.Currency.join("/")}</td>
           </tr>
         </table>
         <p> </p>
